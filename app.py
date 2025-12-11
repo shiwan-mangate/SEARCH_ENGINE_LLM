@@ -1,8 +1,6 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
-# ⛔ Removed StreamlitCallbackHandler import (not needed with v1 agents)
-# from langchain_community.callbacks.streamlit import StreamlitCallbackHandler
 from langchain_community.tools import DuckDuckGoSearchRun, WikipediaQueryRun, ArxivQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper, ArxivAPIWrapper
 from langchain_groq import ChatGroq
@@ -147,3 +145,4 @@ if prompt := st.chat_input("Ask me anything..."):
         )
 
         st.write(output)
+
