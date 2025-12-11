@@ -41,7 +41,11 @@ Your goal is to produce the most accurate, helpful, and detailed answer possible
 """
 
 # Sidebar API Key Input
-api_key = st.sidebar.text_input("Enter your Groq API Key:", type="password")
+api_key = st.sidebar.text_input("Enter your Groq API Key (leave empty to use server key):", type="password")
+
+if not api_key:
+    api_key = st.secrets["GROQ_API_KEY"]
+
 
 
 @st.cache_resource
@@ -145,4 +149,5 @@ if prompt := st.chat_input("Ask me anything..."):
         )
 
         st.write(output)
+
 
